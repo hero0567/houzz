@@ -222,13 +222,32 @@ public class ParseUtil
   {
     String[] wdh = line.split("/");
     String value = "";
-    if (wdh.length > 2)
-    {
-      String w = wdh[0].trim().replace("\"", "");
-      String d = wdh[1].trim().replace("\"", "");
-      String h = wdh[2].trim().replace("\"", "");
-      value = w + ";" + d + ";" + h;
+//    if (wdh.length > 2)
+//    {
+//      String w = wdh[0].trim().replace("\"", "");
+//      String d = wdh[1].trim().replace("\"", "");
+//      String h = wdh[2].trim().replace("\"", "");
+//      value = w + ";" + d + ";" + h;
+//    }
+    
+    String w = "";
+    String d = "";
+    String h = "";
+    for(String s : wdh){
+    	if (s.indexOf("W ") > -1){
+    		w = s.trim().replace("\"", "");
+    		continue;
+    	}
+    	if (s.indexOf("D ") > -1){
+    		d = s.trim().replace("\"", "");
+    		continue;
+    	}
+    	if (s.indexOf("H ") > -1){
+    		h = s.trim().replace("\"", "");
+    		continue;
+    	}
     }
+    value = w + ";" + d + ";" + h;
     return value;
   }
 
