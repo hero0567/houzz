@@ -41,10 +41,10 @@ public class HouzzMain
       sheet = args[1];
     }
 
-    if (licenceCheck())
-    {
-      return;
-    }
+    //if (licenceCheck())
+    //{
+    //  return;
+    //}
 
     String crawlStorageFolder = "./crawler";
     int numberOfCrawlers = 30;

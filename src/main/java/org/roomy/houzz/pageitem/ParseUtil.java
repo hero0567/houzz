@@ -49,7 +49,7 @@ public class ParseUtil
 
     for (String file : files)
     {
-      if (file.equals(sku + ".html"))
+      if (file.equals(sku + ".html") || file.contains(sku + "-"))
       {
         System.out.println("Load file from local:" + sku);
         String html = readHtml("./pages/" + file);
@@ -179,6 +179,7 @@ public class ParseUtil
     category = replaceUnusedString(category);
 
     b.append(sku).append(";").append(manuf).append(";").append(sizeweight).append(";").append(category);
+    System.out.println("Final:"+b.toString());
     results.add(b.toString());
   }
 
