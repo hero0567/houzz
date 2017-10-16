@@ -164,6 +164,7 @@ public class HouzzMain
   {
     int local = 0;
     int remote = 0;
+    List<String> seeds = new ArrayList<String>();
     wb = ExcelUtil.createWb(excel);
     Sheet urlSheet = wb.getSheet(sheet);
     if (urlSheet == null)
@@ -188,15 +189,17 @@ public class HouzzMain
       if (ParseUtil.loadFromLocal(url, null))
       {
         local++;
-        System.out.println("Load from local count:" + local);
-        System.out.println("Load from net count:" + remote);
         continue;
       }
       controller.addSeed(url);
+      seeds.add(url);
       remote++;
       System.out.println("add seed:" + url);
-      System.out.println("Load from local count:" + local);
-      System.out.println("Load from net count:" + remote);
+    }
+    System.out.println("Load from local count:" + local);
+    System.out.println("Load from net count:" + remote);
+    for(String url : seeds){
+    	System.out.println("   net url:" + url);
     }
   }
 }

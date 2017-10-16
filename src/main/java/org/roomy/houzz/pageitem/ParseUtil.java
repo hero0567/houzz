@@ -203,6 +203,9 @@ public class ParseUtil
       return "";
     }
     s = s.replaceAll("</span>", "");
+    s = s.replaceAll("&trade;", "");
+    s = s.replaceAll("&trade", "");
+    s = s.replaceAll("\t", "");
     return s;
   }
 
@@ -232,7 +235,7 @@ public class ParseUtil
     
     String w = "";
     String d = "";
-    String h = "";
+    String h = ";";  //remove end of ; if there is no h, so asign ; to h
     for(String s : wdh){
     	if (s.indexOf("W ") > -1){
     		w = s.trim().replace("\"", "");
